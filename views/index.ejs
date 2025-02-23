@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main min-h-screen bg-zinc-900">
+        <div class="form p-10 text-white">
+            <form action="/create" method="post">
+                <input name="title" type="text" class="w-full border border-white" placeholder="Give a title">
+                <textarea name="details" id="" class="w-full border border-white" placeholder="Your text goes here"></textarea>
+                <button class="bg-indigo-700 cursor-pointer">Submit</button>
+            </form>
+        </div>
+
+        <div class="tasks flex flex-wrap gap-4 p-10">
+
+            <% if (files.length > 0) { %>
+                <% files.forEach(function(val) { %>
+                    <div class="bg-slate-500 w-72 h-[100px] p-4">
+                        <div class="font-bold text-white"> <%= val%> </div>
+                        <a href="/file/<%= val%>" class="cursor-pointer text-indigo-700 text-sm"> Read more... </a>
+                        <a href="/edit/<%= val%>" class="cursor-pointer text-indigo-700 text-sm">Edit</a>
+                    </div>
+                <% }); %> 
+            <% } else { %>  
+                <h1 class="text-white px-15">No tasks yet .. </h1>
+            <% } %>
+        
+        </div>
+        
+
+        
+    </div>
+
+
+    <script src="javascripts/script.js"></script>
+</body>
+</html>
